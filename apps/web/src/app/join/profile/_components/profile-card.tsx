@@ -9,7 +9,6 @@ import { Input } from '@/src/components/shadcn-ui/input';
 import { useEffect, useMemo, useState } from 'react';
 import Stepper from '../../_components/stepper';
 import { User } from '@phosphor-icons/react';
-import Image from 'next/image';
 import { toast } from 'sonner';
 
 type ProfileCardProps = {
@@ -56,7 +55,7 @@ export function ProfileCard({ orgData, wasInvited }: ProfileCardProps) {
   return (
     <div className="mx-auto flex w-full max-w-[416px] flex-col gap-5 p-2">
       <div className="flex items-center justify-between">
-        <Image
+        <img
           src="/logo.png"
           alt="UnInbox Logo"
           height={40}
@@ -83,7 +82,6 @@ export function ProfileCard({ orgData, wasInvited }: ProfileCardProps) {
       <div className="flex gap-4">
         <div>
           {avatarUrl ? (
-            // eslint-disable-next-line @next/next/no-img-element
             <img
               src={avatarUrl}
               alt={`${name}'s Profile`}

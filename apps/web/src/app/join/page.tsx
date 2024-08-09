@@ -13,7 +13,6 @@ import Stepper from './_components/stepper';
 import { useRouter } from 'next/navigation';
 import { platform } from '@/src/lib/trpc';
 import { datePlus } from '@u22n/utils/ms';
-import Image from 'next/image';
 
 export default function Page() {
   const [username, setUsername] = useState<string>('');
@@ -51,7 +50,7 @@ export default function Page() {
   return (
     <div className="mx-auto flex w-full max-w-[416px] flex-col gap-5 p-2">
       <div className="flex items-center justify-between">
-        <Image
+        <img
           src="/logo.png"
           alt="UnInbox Logo"
           height={40}

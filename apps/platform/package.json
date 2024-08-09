@@ -1,24 +1,29 @@
 {
   "name": "@u22n/platform",
+  "version": "0.9.0",
   "private": true,
   "type": "module",
-  "version": "0.9.0",
-  "scripts": {
-    "dev": "tsx watch --clear-screen=false --import ./tracing.ts app.ts",
-    "start": "node --import ./.output/tracing.js .output/app.js",
-    "build": "tsup",
-    "check": "tsc --noEmit"
-  },
   "exports": {
     "./trpc": {
       "types": "./trpc/index.ts"
     }
   },
+  "scripts": {
+    "build": "tsup",
+    "check": "tsc --noEmit",
+    "dev": "tsx watch --clear-screen=false --import ./tracing.ts app.ts",
+    "start": "node --import ./.output/tracing.js .output/app.js"
+  },
   "dependencies": {
+    "oslo": "^1.2.1"
+  },
+  "devDependencies": {
     "@simplewebauthn/server": "^9.0.3",
+    "@simplewebauthn/types": "^9.0.1",
     "@t3-oss/env-core": "^0.11.0",
     "@trpc/client": "11.0.0-rc.467",
     "@trpc/server": "11.0.0-rc.467",
+    "@types/node": "^20.14.10",
     "@u22n/database": "workspace:^",
     "@u22n/hono": "workspace:^",
     "@u22n/mail-bridge": "workspace:^",
@@ -27,20 +32,13 @@
     "@u22n/tiptap": "workspace:^",
     "@u22n/tsconfig": "^0.0.2",
     "@u22n/utils": "workspace:^",
+    "@uninbox-ee/billing": "workspace:^",
     "@unkey/ratelimit": "^0.3.1",
     "lucia": "^3.2.0",
-    "oslo": "^1.2.1",
     "superjson": "^2.2.1",
+    "typescript": "5.5.3",
     "ua-parser-js": "2.0.0-beta.2",
     "unstorage": "^1.10.2",
     "zod": "^3.23.8"
-  },
-  "devDependencies": {
-    "@simplewebauthn/types": "^9.0.1",
-    "@types/node": "^20.14.10",
-    "@uninbox-ee/billing": "workspace:^",
-    "tsup": "^8.1.2",
-    "tsx": "^4.16.2",
-    "typescript": "5.5.3"
   }
 }

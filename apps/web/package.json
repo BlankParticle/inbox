@@ -1,13 +1,13 @@
 {
   "name": "@u22n/web",
+  "version": "0.9.0",
   "private": true,
   "type": "module",
-  "version": "0.9.0",
   "scripts": {
-    "dev": "PORT=3000 next dev --turbo",
     "build": "next build && cp -r .next/static .next/standalone/apps/web/.next",
-    "start": "HOSTNAME=0.0.0.0 node .next/standalone/apps/web/server.js",
-    "check": "tsc --noEmit"
+    "check": "tsc --noEmit",
+    "dev": "PORT=3000 next dev --turbo",
+    "start": "HOSTNAME=0.0.0.0 node .next/standalone/apps/web/server.js"
   },
   "dependencies": {
     "@calcom/embed-react": "^1.5.0",
@@ -44,7 +44,6 @@
     "@trpc/react-query": "11.0.0-rc.467",
     "@trpc/server": "11.0.0-rc.467",
     "@u22n/otel": "workspace:^",
-    "@u22n/platform": "workspace:^",
     "@u22n/realtime": "workspace:^",
     "@u22n/tiptap": "workspace:^",
     "@u22n/utils": "workspace:^",
@@ -82,6 +81,7 @@
     "@types/node": "^20.14.10",
     "@types/react": "^18.3.3",
     "@types/react-dom": "^18.3.0",
+    "@u22n/platform": "workspace:^",
     "postcss": "^8.4.38",
     "tailwindcss": "^3.4.4",
     "typescript": "5.5.3",

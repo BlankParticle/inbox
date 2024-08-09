@@ -35,6 +35,9 @@ importers:
       eslint-plugin-drizzle:
         specifier: ^0.2.3
         version: 0.2.3(eslint@8.57.0)
+      glob:
+        specifier: ^11.0.0
+        version: 11.0.0
       husky:
         specifier: ^9.1.4
         version: 9.1.4
@@ -50,6 +53,12 @@ importers:
       prettier-plugin-tailwindcss:
         specifier: ^0.6.5
         version: 0.6.5(prettier-plugin-sort-imports@1.8.6(typescript@5.5.4))(prettier@3.3.3)
+      tsup:
+        specifier: ^8.1.2
+        version: 8.2.3(jiti@1.21.6)(postcss@8.4.40)(tsx@4.17.0)(typescript@5.5.4)(yaml@2.5.0)
+      tsx:
+        specifier: ^4.17.0
+        version: 4.17.0
       turbo:
         specifier: ^1.13.4
         version: 1.13.4
@@ -59,6 +68,10 @@ importers:
 
   apps/mail-bridge:
     dependencies:
+      jsdom:
+        specifier: ^24.1.0
+        version: 24.1.1
+    devDependencies:
       '@t3-oss/env-core':
         specifier: ^0.11.0
         version: 0.11.0(typescript@5.5.4)(zod@3.23.8)
@@ -68,6 +81,21 @@ importers:
       '@trpc/server':
         specifier: 11.0.0-rc.467
         version: 11.0.0-rc.467
+      '@types/dompurify':
+        specifier: ^3.0.5
+        version: 3.0.5
+      '@types/jsdom':
+        specifier: ^21.1.7
+        version: 21.1.7
+      '@types/mailparser':
+        specifier: ^3.4.4
+        version: 3.4.4
+      '@types/node':
+        specifier: ^20.14.10
+        version: 20.14.13
+      '@types/nodemailer':
+        specifier: ^6.4.15
+        version: 6.4.15
       '@u22n/database':
         specifier: workspace:*
         version: link:../../packages/database
@@ -101,9 +129,6 @@ importers:
       drizzle-orm:
         specifier: ^0.32.1
         version: 0.32.1(@opentelemetry/api@1.9.0)(@planetscale/database@1.18.0)(@types/react@18.3.3)(mysql2@3.11.0)(react@18.3.1)
-      jsdom:
-        specifier: ^24.1.0
-        version: 24.1.1
       mailauth:
         specifier: ^4.6.8
         version: 4.6.8
@@ -128,34 +153,19 @@ importers:
       zod:
         specifier: ^3.23.8
         version: 3.23.8
-    devDependencies:
-      '@types/dompurify':
-        specifier: ^3.0.5
-        version: 3.0.5
-      '@types/jsdom':
-        specifier: ^21.1.7
-        version: 21.1.7
-      '@types/mailparser':
-        specifier: ^3.4.4
-        version: 3.4.4
-      '@types/node':
-        specifier: ^20.14.10
-        version: 20.14.13
-      '@types/nodemailer':
-        specifier: ^6.4.15
-        version: 6.4.15
-      tsup:
-        specifier: ^8.1.2
-        version: 8.2.3(jiti@1.21.6)(postcss@8.4.40)(tsx@4.16.3)(typescript@5.5.4)(yaml@2.5.0)
-      tsx:
-        specifier: ^4.16.2
-        version: 4.16.3
 
   apps/platform:
     dependencies:
+      oslo:
+        specifier: ^1.2.1
+        version: 1.2.1
+    devDependencies:
       '@simplewebauthn/server':
         specifier: ^9.0.3
         version: 9.0.3(encoding@0.1.13)
+      '@simplewebauthn/types':
+        specifier: ^9.0.1
+        version: 9.0.1
       '@t3-oss/env-core':
         specifier: ^0.11.0
         version: 0.11.0(typescript@5.5.3)(zod@3.23.8)
@@ -165,6 +175,9 @@ importers:
       '@trpc/server':
         specifier: 11.0.0-rc.467
         version: 11.0.0-rc.467
+      '@types/node':
+        specifier: ^20.14.10
+        version: 20.14.13
       '@u22n/database':
         specifier: workspace:^
         version: link:../../packages/database
@@ -189,18 +202,21 @@ importers:
       '@u22n/utils':
         specifier: workspace:^
         version: link:../../packages/utils
+      '@uninbox-ee/billing':
+        specifier: workspace:^
+        version: link:../../ee/apps/billing
       '@unkey/ratelimit':
         specifier: ^0.3.1
         version: 0.3.2
       lucia:
         specifier: ^3.2.0
         version: 3.2.0
-      oslo:
-        specifier: ^1.2.1
-        version: 1.2.1
       superjson:
         specifier: ^2.2.1
         version: 2.2.1
+      typescript:
+        specifier: 5.5.3
+        version: 5.5.3
       ua-parser-js:
         specifier: 2.0.0-beta.2
         version: 2.0.0-beta.2
@@ -210,28 +226,13 @@ importers:
       zod:
         specifier: ^3.23.8
         version: 3.23.8
-    devDependencies:
-      '@simplewebauthn/types':
-        specifier: ^9.0.1
-        version: 9.0.1
-      '@types/node':
-        specifier: ^20.14.10
-        version: 20.14.13
-      '@uninbox-ee/billing':
-        specifier: workspace:^
-        version: link:../../ee/apps/billing
-      tsup:
-        specifier: ^8.1.2
-        version: 8.2.3(jiti@1.21.6)(postcss@8.4.40)(tsx@4.16.3)(typescript@5.5.3)(yaml@2.5.0)
-      tsx:
-        specifier: ^4.16.2
-        version: 4.16.3
-      typescript:
-        specifier: 5.5.3
-        version: 5.5.3
 
   apps/storage:
     dependencies:
+      sharp:
+        specifier: ^0.33.4
+        version: 0.33.4
+    devDependencies:
       '@aws-sdk/client-s3':
         specifier: ^3.614.0
         version: 3.621.0
@@ -241,6 +242,9 @@ importers:
       '@t3-oss/env-core':
         specifier: ^0.11.0
         version: 0.11.0(typescript@5.5.3)(zod@3.23.8)
+      '@types/node':
+        specifier: ^20.14.10
+        version: 20.14.13
       '@u22n/database':
         specifier: workspace:*
         version: link:../../packages/database
@@ -256,28 +260,15 @@ importers:
       '@u22n/utils':
         specifier: workspace:*
         version: link:../../packages/utils
-      sharp:
-        specifier: ^0.33.4
-        version: 0.33.4
+      typescript:
+        specifier: 5.5.3
+        version: 5.5.3
       unstorage:
         specifier: ^1.10.2
         version: 1.10.2(@planetscale/database@1.18.0)(@upstash/redis@1.34.0)(ioredis@5.4.1)
       zod:
         specifier: ^3.23.8
         version: 3.23.8
-    devDependencies:
-      '@types/node':
-        specifier: ^20.14.10
-        version: 20.14.13
-      tsup:
-        specifier: ^8.1.2
-        version: 8.2.3(jiti@1.21.6)(postcss@8.4.40)(tsx@4.16.3)(typescript@5.5.3)(yaml@2.5.0)
-      tsx:
-        specifier: ^4.16.2
-        version: 4.16.3
-      typescript:
-        specifier: 5.5.3
-        version: 5.5.3
 
   apps/web:
     dependencies:
@@ -383,9 +374,6 @@ importers:
       '@u22n/otel':
         specifier: workspace:^
         version: link:../../packages/otel
-      '@u22n/platform':
-        specifier: workspace:^
-        version: link:../platform
       '@u22n/realtime':
         specifier: workspace:^
         version: link:../../packages/realtime
@@ -492,6 +480,9 @@ importers:
       '@types/react-dom':
         specifier: ^18.3.0
         version: 18.3.0
+      '@u22n/platform':
+        specifier: workspace:^
+        version: link:../platform
       postcss:
         specifier: ^8.4.38
         version: 8.4.40
@@ -506,7 +497,7 @@ importers:
         version: 2.0.0-beta.7(@radix-ui/colors@3.0.0)(tailwindcss@3.4.7)
 
   apps/worker:
-    dependencies:
+    devDependencies:
       '@t3-oss/env-core':
         specifier: ^0.10.1
         version: 0.10.1(typescript@5.5.4)(zod@3.23.8)
@@ -516,6 +507,9 @@ importers:
       '@trpc/server':
         specifier: 11.0.0-rc.467
         version: 11.0.0-rc.467
+      '@types/node':
+        specifier: ^20.14.10
+        version: 20.14.13
       '@u22n/database':
         specifier: workspace:^
         version: link:../../packages/database
@@ -525,6 +519,9 @@ importers:
       '@u22n/otel':
         specifier: workspace:^
         version: link:../../packages/otel
+      '@u22n/tsconfig':
+        specifier: ^0.0.2
+        version: 0.0.2
       '@u22n/utils':
         specifier: workspace:^
         version: link:../../packages/utils
@@ -537,28 +534,15 @@ importers:
       superjson:
         specifier: ^2.2.1
         version: 2.2.1
-      zod:
-        specifier: ^3.23.8
-        version: 3.23.8
-    devDependencies:
-      '@types/node':
-        specifier: ^20.14.10
-        version: 20.14.13
-      '@u22n/tsconfig':
-        specifier: ^0.0.2
-        version: 0.0.2
-      tsup:
-        specifier: ^8.1.2
-        version: 8.2.3(jiti@1.21.6)(postcss@8.4.40)(tsx@4.16.3)(typescript@5.5.4)(yaml@2.5.0)
-      tsx:
-        specifier: ^4.16.2
-        version: 4.16.3
       typescript:
         specifier: ^5.5.3
         version: 5.5.4
+      zod:
+        specifier: ^3.23.8
+        version: 3.23.8
 
   ee/apps/billing:
-    dependencies:
+    devDependencies:
       '@t3-oss/env-core':
         specifier: ^0.10.1
         version: 0.10.1(typescript@5.5.2)(zod@3.23.8)
@@ -568,6 +552,9 @@ importers:
       '@trpc/server':
         specifier: 11.0.0-rc.467
         version: 11.0.0-rc.467
+      '@types/node':
+        specifier: ^20.14.6
+        version: 20.14.13
       '@u22n/database':
         specifier: workspace:*
         version: link:../../../packages/database
@@ -586,22 +573,12 @@ importers:
       superjson:
         specifier: ^2.2.1
         version: 2.2.1
-      zod:
-        specifier: ^3.23.8
-        version: 3.23.8
-    devDependencies:
-      '@types/node':
-        specifier: ^20.14.6
-        version: 20.14.13
-      tsup:
-        specifier: ^8.1.2
-        version: 8.2.3(jiti@1.21.6)(postcss@8.4.40)(tsx@4.16.3)(typescript@5.5.2)(yaml@2.5.0)
-      tsx:
-        specifier: ^4.15.6
-        version: 4.16.3
       typescript:
         specifier: 5.5.2
         version: 5.5.2
+      zod:
+        specifier: ^3.23.8
+        version: 3.23.8
 
   ee/apps/command:
     dependencies:
@@ -5036,6 +5013,11 @@ packages:
     engines: {node: '>=16 || 14 >=14.17'}
     hasBin: true
 
+  glob@11.0.0:
+    resolution: {integrity: sha512-9UiX/Bl6J2yaBbxKoEBRm4Cipxgok8kQYcOPEhScPwebu2I0HoQOuYdIO6S3hLuWoZgpDpwQZMzTFxgpkyT76g==}
+    engines: {node: 20 || >=22}
+    hasBin: true
+
   glob@7.2.3:
     resolution: {integrity: sha512-nFR0zLpU2YCaRxwoCJvL6UvCH2JFyFVIvwTLsIf21AuHlMskA1hhTdk+LlYJtOlYt9v6dvszD2BGRqBL+iQK9Q==}
     deprecated: Glob versions prior to v9 are no longer supported
@@ -5377,6 +5359,10 @@ packages:
     resolution: {integrity: sha512-N3yCS/NegsOBokc8GAdM8UcmfsKiSS8cipheD/nivzr700H+nsMOxJjQnvwOcRYVuFkdH0wGUvW2WbXGmrZGbQ==}
     engines: {node: '>=14'}
 
+  jackspeak@4.0.1:
+    resolution: {integrity: sha512-cub8rahkh0Q/bw1+GxP7aeSe29hHHn2V4m29nnDlvCdlgU+3UGxkZp7Z53jLUdpX3jdTO0nJZUDl3xvbWc2Xog==}
+    engines: {node: 20 || >=22}
+
   jiti@1.21.6:
     resolution: {integrity: sha512-2yTgeWTWzMWkHu6Jp9NKgePDaYHbntiwvYuuJLbbN9vl7DC9DvXKOB2BC3ZZ92D3cvV/aflH0osDfwpHepQ53w==}
     hasBin: true
@@ -5560,6 +5546,10 @@ packages:
     resolution: {integrity: sha512-9hp3Vp2/hFQUiIwKo8XCeFVnrg8Pk3TYNPIR7tJADKi5YfcF7vEaK7avFHTlSy3kOKYaJQaalfEo6YuXdceBOQ==}
     engines: {node: 14 || >=16.14}
 
+  lru-cache@11.0.0:
+    resolution: {integrity: sha512-Qv32eSV1RSCfhY3fpPE2GNZ8jgM9X7rdAfemLWqTUxwiyIC4jJ6Sy0fZ8H+oLWevO6i4/bizg7c8d8i6bxrzbA==}
+    engines: {node: 20 || >=22}
+
   lru-cache@7.18.3:
     resolution: {integrity: sha512-jumlc0BIUrS3qJGgIkWZsyfAM7NCWiBcCDhnd+3NNM5KbBmLTgHVfWBcg6W+rLUsIpzpERPsvwUP7CckAQSOoA==}
     engines: {node: '>=12'}
@@ -5639,6 +5629,10 @@ packages:
   mimic-fn@4.0.0:
     resolution: {integrity: sha512-vqiC06CuhBTUdZH+RYl8sFrL096vA45Ok5ISO6sE/Mr1jRbGH4Csnhi8f3wKVl7x8mO4Au7Ir9D3Oyv1VYMFJw==}
     engines: {node: '>=12'}
+
+  minimatch@10.0.1:
+    resolution: {integrity: sha512-ethXTt3SGGR+95gudmqJ1eNhRO7eGEGIgYA9vnPatK4/etz2MEVDno5GMCibdMTuBMyElzIlgxMna3K94XDIDQ==}
+    engines: {node: 20 || >=22}
 
   minimatch@3.1.2:
     resolution: {integrity: sha512-J7p63hRiAjw1NDEww1W7i37+ByIrOWO5XQQAzZ3VOcL0PNybwpfmV/N05zFAzwQ9USyEcX6t3UO+K5aqBQOIHw==}
@@ -5917,6 +5911,9 @@ packages:
     resolution: {integrity: sha512-R4nPAVTAU0B9D35/Gk3uJf/7XYbQcyohSKdvAxIRSNghFl4e71hVoGnBNQz9cWaXxO2I10KTC+3jMdvvoKw6dQ==}
     engines: {node: '>=6'}
 
+  package-json-from-dist@1.0.0:
+    resolution: {integrity: sha512-dATvCeZN/8wQsGywez1mzHtTlP22H8OEfPrVMLNr4/eGa+ijtLn/6M5f0dY8UKNrC2O9UCU6SSoG3qRKnt7STw==}
+
   parent-module@1.0.1:
     resolution: {integrity: sha512-GQ2EWRpQV8/o+Aw8YqtfZZPfNRWZYkbidE9k5rpl/hC3vtHHBfGm2Ifi6qWV+coDGkrUKZAxE3Lot5kcsRlh+g==}
     engines: {node: '>=6'}
@@ -5952,6 +5949,10 @@ packages:
   path-scurry@1.11.1:
     resolution: {integrity: sha512-Xa4Nw17FS9ApQFJ9umLiJS4orGjm7ZzwUrwamcGQuHSzDyth9boKDaycYdDcZDuqYATXw4HFXgaqWTctW/v1HA==}
     engines: {node: '>=16 || 14 >=14.18'}
+
+  path-scurry@2.0.0:
+    resolution: {integrity: sha512-ypGJsmGtdXUOeM5u93TyeIEfEhM6s+ljAhrk5vAvSx8uyY/02OvrZnA0YNGUrPXfpJMgI1ODd3nwz8Npx4O4cg==}
+    engines: {node: 20 || >=22}
 
   path-type@4.0.0:
     resolution: {integrity: sha512-gDKb8aZMDeD/tZWs9P6+q0J9Mwkdl6xMV8TjnGP3qJVJ06bdMgkbBlLU8IdfOsIsFz2BW1rNVT3XuNEl8zPAvw==}
@@ -6774,6 +6775,11 @@ packages:
 
   tsx@4.16.3:
     resolution: {integrity: sha512-MP8AEUxVnboD2rCC6kDLxnpDBNWN9k3BSVU/0/nNxgm70bPBnfn+yCKcnOsIVPQwdkbKYoFOlKjjWZWJ2XCXUg==}
+    engines: {node: '>=18.0.0'}
+    hasBin: true
+
+  tsx@4.17.0:
+    resolution: {integrity: sha512-eN4mnDA5UMKDt4YZixo9tBioibaMBpoxBkD+rIPAjVmYERSG0/dWEY1CEFuV89CgASlKL499q8AhmkMnnjtOJg==}
     engines: {node: '>=18.0.0'}
     hasBin: true
 
@@ -11611,6 +11617,15 @@ snapshots:
       minipass: 7.1.2
       path-scurry: 1.11.1
 
+  glob@11.0.0:
+    dependencies:
+      foreground-child: 3.2.1
+      jackspeak: 4.0.1
+      minimatch: 10.0.1
+      minipass: 7.1.2
+      package-json-from-dist: 1.0.0
+      path-scurry: 2.0.0
+
   glob@7.2.3:
     dependencies:
       fs.realpath: 1.0.0
@@ -11958,6 +11973,12 @@ snapshots:
     optionalDependencies:
       '@pkgjs/parseargs': 0.11.0
 
+  jackspeak@4.0.1:
+    dependencies:
+      '@isaacs/cliui': 8.0.2
+    optionalDependencies:
+      '@pkgjs/parseargs': 0.11.0
+
   jiti@1.21.6: {}
 
   joi@17.13.1:
@@ -12179,6 +12200,8 @@ snapshots:
 
   lru-cache@10.2.2: {}
 
+  lru-cache@11.0.0: {}
+
   lru-cache@7.18.3: {}
 
   lru-cache@8.0.5: {}
@@ -12267,6 +12290,10 @@ snapshots:
   mimic-fn@2.1.0: {}
 
   mimic-fn@4.0.0: {}
+
+  minimatch@10.0.1:
+    dependencies:
+      brace-expansion: 2.0.1
 
   minimatch@3.1.2:
     dependencies:
@@ -12571,6 +12598,8 @@ snapshots:
 
   p-try@2.2.0: {}
 
+  package-json-from-dist@1.0.0: {}
+
   parent-module@1.0.1:
     dependencies:
       callsites: 3.1.0
@@ -12602,6 +12631,11 @@ snapshots:
   path-scurry@1.11.1:
     dependencies:
       lru-cache: 10.2.2
+      minipass: 7.1.2
+
+  path-scurry@2.0.0:
+    dependencies:
+      lru-cache: 11.0.0
       minipass: 7.1.2
 
   path-type@4.0.0: {}
@@ -12656,13 +12690,13 @@ snapshots:
     optionalDependencies:
       postcss: 8.4.40
 
-  postcss-load-config@6.0.1(jiti@1.21.6)(postcss@8.4.40)(tsx@4.16.3)(yaml@2.5.0):
+  postcss-load-config@6.0.1(jiti@1.21.6)(postcss@8.4.40)(tsx@4.17.0)(yaml@2.5.0):
     dependencies:
       lilconfig: 3.1.2
     optionalDependencies:
       jiti: 1.21.6
       postcss: 8.4.40
-      tsx: 4.16.3
+      tsx: 4.17.0
       yaml: 2.5.0
 
   postcss-nested@6.0.1(postcss@8.4.40):
@@ -13442,7 +13476,7 @@ snapshots:
 
   tslib@2.6.3: {}
 
-  tsup@8.2.3(jiti@1.21.6)(postcss@8.4.40)(tsx@4.16.3)(typescript@5.5.2)(yaml@2.5.0):
+  tsup@8.2.3(jiti@1.21.6)(postcss@8.4.40)(tsx@4.17.0)(typescript@5.5.4)(yaml@2.5.0):
     dependencies:
       bundle-require: 5.0.0(esbuild@0.23.0)
       cac: 6.7.14
@@ -13454,61 +13488,7 @@ snapshots:
       globby: 11.1.0
       joycon: 3.1.1
       picocolors: 1.0.1
-      postcss-load-config: 6.0.1(jiti@1.21.6)(postcss@8.4.40)(tsx@4.16.3)(yaml@2.5.0)
-      resolve-from: 5.0.0
-      rollup: 4.19.1
-      source-map: 0.8.0-beta.0
-      sucrase: 3.35.0
-      tree-kill: 1.2.2
-    optionalDependencies:
-      postcss: 8.4.40
-      typescript: 5.5.2
-    transitivePeerDependencies:
-      - jiti
-      - supports-color
-      - tsx
-      - yaml
-
-  tsup@8.2.3(jiti@1.21.6)(postcss@8.4.40)(tsx@4.16.3)(typescript@5.5.3)(yaml@2.5.0):
-    dependencies:
-      bundle-require: 5.0.0(esbuild@0.23.0)
-      cac: 6.7.14
-      chokidar: 3.6.0
-      consola: 3.2.3
-      debug: 4.3.6
-      esbuild: 0.23.0
-      execa: 5.1.1
-      globby: 11.1.0
-      joycon: 3.1.1
-      picocolors: 1.0.1
-      postcss-load-config: 6.0.1(jiti@1.21.6)(postcss@8.4.40)(tsx@4.16.3)(yaml@2.5.0)
-      resolve-from: 5.0.0
-      rollup: 4.19.1
-      source-map: 0.8.0-beta.0
-      sucrase: 3.35.0
-      tree-kill: 1.2.2
-    optionalDependencies:
-      postcss: 8.4.40
-      typescript: 5.5.3
-    transitivePeerDependencies:
-      - jiti
-      - supports-color
-      - tsx
-      - yaml
-
-  tsup@8.2.3(jiti@1.21.6)(postcss@8.4.40)(tsx@4.16.3)(typescript@5.5.4)(yaml@2.5.0):
-    dependencies:
-      bundle-require: 5.0.0(esbuild@0.23.0)
-      cac: 6.7.14
-      chokidar: 3.6.0
-      consola: 3.2.3
-      debug: 4.3.6
-      esbuild: 0.23.0
-      execa: 5.1.1
-      globby: 11.1.0
-      joycon: 3.1.1
-      picocolors: 1.0.1
-      postcss-load-config: 6.0.1(jiti@1.21.6)(postcss@8.4.40)(tsx@4.16.3)(yaml@2.5.0)
+      postcss-load-config: 6.0.1(jiti@1.21.6)(postcss@8.4.40)(tsx@4.17.0)(yaml@2.5.0)
       resolve-from: 5.0.0
       rollup: 4.19.1
       source-map: 0.8.0-beta.0
@@ -13526,6 +13506,13 @@ snapshots:
   tsx@4.16.3:
     dependencies:
       esbuild: 0.21.5
+      get-tsconfig: 4.7.5
+    optionalDependencies:
+      fsevents: 2.3.3
+
+  tsx@4.17.0:
+    dependencies:
+      esbuild: 0.23.0
       get-tsconfig: 4.7.5
     optionalDependencies:
       fsevents: 2.3.3

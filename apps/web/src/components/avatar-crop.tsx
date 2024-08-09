@@ -90,7 +90,6 @@ export default function AvatarCrop({
         aspect={1}
         ruleOfThirds={true}
         circularCrop={true}>
-        {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
           src={imageSrc}
           className="origin-center transition-transform duration-100 ease-linear will-change-transform"

@@ -135,7 +135,6 @@ export function ConvoList({ hidden }: Props) {
         />
       ) : (
         <div className="flex h-full w-full flex-col items-center justify-center gap-2 text-center">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             src="/inbox-zero.svg"
             alt="You have no convos"

@@ -4,6 +4,7 @@ import { z } from 'zod';
 const IS_BROWSER = typeof window !== 'undefined';
 const IS_DEV = process.env.NODE_ENV === 'development';
 const IS_POSTHOG_ENABLED = process.env.POSTHOG_ENABLED === 'true';
+const IS_DOCKER_BUILD = process.env.DOCKER_BUILD === '1';
 
 // Don't worry about this block, it is tree-shaken out in the browser
 if (!IS_BROWSER) {
@@ -58,5 +59,5 @@ export const env = createEnv({
   // if you check in the browser, you will see runtimeEnv is set to window.__ENV only
   runtimeEnv: IS_BROWSER ? window.__ENV : process.env,
   clientPrefix: 'NEXT_PUBLIC_',
-  skipValidation: IS_BROWSER && IS_DEV
+  skipValidation: (IS_BROWSER && IS_DEV) || IS_DOCKER_BUILD
 });

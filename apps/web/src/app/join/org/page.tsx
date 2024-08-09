@@ -5,7 +5,6 @@ import { JoinOrg } from './_components/join-org';
 import { useCookies } from 'next-client-cookies';
 import Stepper from '../_components/stepper';
 import { At } from '@phosphor-icons/react';
-import Image from 'next/image';
 
 export default function JoinOrgPage() {
   const cookies = useCookies();
@@ -16,7 +15,7 @@ export default function JoinOrgPage() {
   return (
     <div className="mx-auto flex w-full max-w-[416px] flex-col gap-5 p-2">
       <div className="flex items-center justify-between">
-        <Image
+        <img
           src="/logo.png"
           alt="UnInbox Logo"
           height={40}

@@ -27,7 +27,6 @@ import { At, Lock } from '@phosphor-icons/react';
 import { useForm } from 'react-hook-form';
 import { platform } from '@/src/lib/trpc';
 import { useState } from 'react';
-import Image from 'next/image';
 import { toast } from 'sonner';
 import Link from 'next/link';
 import { z } from 'zod';
@@ -150,12 +149,12 @@ export default function Page() {
   return (
     <div className="bg-base-2 flex h-full items-center justify-center">
       <div className="-mt-4 text-start">
-        <Image
+        <img
           src="/logo.png"
           alt="UnInbox Logo"
           height={40}
           width={40}
-          className="mb-5 rounded-xl"
+          className="rounded-xl"
         />
         <h1 className="mb-2 text-2xl font-medium">Login to your UnInbox</h1>
         <h2 className="text-base-10 text-sm">Enter your details to login.</h2>

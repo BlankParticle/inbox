@@ -17,7 +17,6 @@ import { useRouter } from 'next/navigation';
 import { At } from '@phosphor-icons/react';
 import { useForm } from 'react-hook-form';
 import { platform } from '@/src/lib/trpc';
-import Image from 'next/image';
 import { toast } from 'sonner';
 import { z } from 'zod';
 
@@ -135,7 +134,7 @@ export default function Page() {
   return (
     <div className="mx-auto flex w-full max-w-[416px] flex-col gap-5 p-2">
       <div className="flex items-center justify-between">
-        <Image
+        <img
           src="/logo.png"
           alt="UnInbox Logo"
           height={40}

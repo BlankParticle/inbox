@@ -5,9 +5,9 @@
   "private": true,
   "scripts": {
     "ee:dev": "PORT=3820 next dev",
-    "ee:build": "next build",
-    "ee:start": "next start",
-    "lint": "next lint"
+    "ee:build": "next build && cp -r .next/static .next/standalone/ee/apps/command/.next",
+    "ee:start": "HOSTNAME=0.0.0.0 node .next/standalone/ee/apps/command/server.js",
+    "check": "tsc --noEmit"
   },
   "dependencies": {
     "@radix-ui/react-icons": "^1.3.0",

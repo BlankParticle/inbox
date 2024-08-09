@@ -10,6 +10,9 @@ const config = {
     ignoreDuringBuilds: true
   },
   output: 'standalone',
+  images: {
+    unoptimized: true
+  },
   experimental: {
     outputFileTracingRoot: join(
       new URL('.', import.meta.url).pathname,
