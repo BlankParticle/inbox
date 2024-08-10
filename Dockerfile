@@ -34,25 +34,25 @@ COPY /ee/apps/billing/package.json ./ee/apps/billing/package.json
 COPY /ee/apps/command/package.json ./ee/apps/command/package.json
 
 # Install dependencies
-RUN --mount=type=cache,id=pnpm,target=/pnpm/store pnpm install --frozen-lockfile --prefer-offline --ignore-scripts
+RUN pnpm install --frozen-lockfile --prefer-offline --ignore-scripts
 
 # Distribute UnBundled Modules
 FROM pnpm-cache AS isolated_modules
-RUN --mount=type=cache,id=pnpm,target=/pnpm/store pnpm deploy --prod --frozen-lockfile --ignore-scripts --filter=@u22n/platform /modules/platform
-RUN --mount=type=cache,id=pnpm,target=/pnpm/store pnpm deploy --prod --frozen-lockfile --ignore-scripts --filter=@u22n/mail-bridge /modules/mail-bridge
-RUN --mount=type=cache,id=pnpm,target=/pnpm/store pnpm deploy --prod --frozen-lockfile --ignore-scripts --filter=@u22n/storage /modules/storage
-RUN --mount=type=cache,id=pnpm,target=/pnpm/store pnpm deploy --prod --frozen-lockfile --ignore-scripts --filter=@u22n/worker /modules/worker
-RUN --mount=type=cache,id=pnpm,target=/pnpm/store pnpm deploy --prod --frozen-lockfile --ignore-scripts --filter=@uninbox-ee/billing /modules/ee-billing
+RUN pnpm deploy --prod --frozen-lockfile --ignore-scripts --filter=@u22n/platform /modules/platform
+RUN pnpm deploy --prod --frozen-lockfile --ignore-scripts --filter=@u22n/mail-bridge /modules/mail-bridge
+RUN pnpm deploy --prod --frozen-lockfile --ignore-scripts --filter=@u22n/storage /modules/storage
+RUN pnpm deploy --prod --frozen-lockfile --ignore-scripts --filter=@u22n/worker /modules/worker
+RUN pnpm deploy --prod --frozen-lockfile --ignore-scripts --filter=@uninbox-ee/billing /modules/ee-billing
 
 # Build everything
 FROM pnpm-cache AS builder
 ENV DOCKER_BUILD=1
 COPY . .
-RUN --mount=type=cache,id=turbo,target=./.turbo pnpm run build:all
-RUN --mount=type=cache,id=turbo,target=./.turbo pnpm run ee:build:all
+RUN pnpm run build:all
+RUN pnpm run ee:build:all
 RUN rm -rf ./**/.turbo
 
-# Create the web Container
+# Create web container
 FROM base AS web
 WORKDIR /uninbox
 COPY --from=pnpm-cache /uninbox/apps/web/package.json .
@@ -60,35 +60,35 @@ COPY --from=builder /uninbox/apps/web/.next/standalone .next/standalone
 ENV HOSTNAME=0.0.0.0
 CMD node .next/standalone/apps/web/server.js
 
-# Create platform Container
+# Create platform container
 FROM base AS platform
 WORKDIR /uninbox
 COPY --from=isolated_modules /modules/platform .
 COPY --from=builder /uninbox/apps/platform/.output .output
 CMD node --import ./.output/tracing.js .output/app.js
 
-# Create mail-bridge Container
+# Create mail-bridge container
 FROM base AS mail-bridge
 WORKDIR /uninbox
 COPY --from=isolated_modules /modules/mail-bridge .
 COPY --from=builder /uninbox/apps/mail-bridge/.output .output
 CMD node --import ./.output/tracing.js .output/app.js
 
-# Create storage Container
+# Create storage container
 FROM base AS storage
 WORKDIR /uninbox
 COPY --from=isolated_modules /modules/storage .
 COPY --from=builder /uninbox/apps/storage/.output .output
 CMD node --import ./.output/tracing.js .output/app.js
 
-# Create worker Container
+# Create worker container
 FROM base AS worker
 WORKDIR /uninbox
 COPY --from=isolated_modules /modules/worker .
 COPY --from=builder /uninbox/apps/worker/.output .output
 CMD node --import ./.output/tracing.js .output/app.js
 
-# Create the ee-command Container
+# Create ee-command container
 FROM base AS ee-command
 WORKDIR /uninbox
 COPY --from=pnpm-cache /uninbox/ee/apps/command/package.json .
@@ -96,7 +96,7 @@ COPY --from=builder /uninbox/ee/apps/command/.next/standalone .next/standalone
 ENV HOSTNAME=0.0.0.0
 CMD node .next/standalone/ee/apps/command/server.js
 
-# Create ee-billing Container
+# Create ee-billing container
 FROM base AS ee-billing
 WORKDIR /uninbox
 COPY --from=isolated_modules /modules/ee-billing .

@@ -8,8 +8,11 @@ const copyPackageJsonPerDir = async (dir: string, name: string) => {
   );
 };
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const runWithCache = (command: string, cacheId: string, mount: string) =>
-  `RUN --mount=type=cache,id=${cacheId},target=${mount} ${command}`;
+  // don't have support for cache yet
+  // `RUN --mount=type=cache,id=${cacheId},target=${mount} ${command}`;
+  `RUN ${command}`;
 
 const isolateModules = (app: string, target: string) =>
   runWithCache(

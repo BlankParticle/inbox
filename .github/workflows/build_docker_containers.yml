@@ -1,4 +1,4 @@
-name: check-and-build-pull-requests
+name: build-docker-containers
 
 on:
   push:
@@ -37,15 +37,21 @@ jobs:
           password: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Cache Docker Layers 🗄
-        uses: actions/cache@v3
+        uses: actions/cache@v4
+        id: cache
         with:
           path: /tmp/.buildx-cache
-          key: ${{ runner.os }}-buildx-${{ github.sha }}
+          key: ${{ runner.os }}-build-${{ github.sha }}
           restore-keys: |
-            ${{ runner.os }}-buildx-
+            ${{ runner.os }}-build-
 
       - name: Copy Env File 📄
         run: cp .env.local.example .env.local
 
       - name: Run Build Script 🏗
         run: ./scripts/build-all.sh
+
+      - name: Move new cache
+        run: |
+          rm -rf /tmp/.buildx-cache
+          mv /tmp/.buildx-cache-new /tmp/.buildx-cache

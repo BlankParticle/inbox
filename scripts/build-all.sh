@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Define the list of targets you want to build
-TARGETS=("platform" "mail-bridge" "storage" "worker" "web")
+TARGETS=("platform" "mail-bridge" "storage" "worker" "web" "ee-command" "ee-billing")
 
 GITHUB_REPOSITORY="blankparticle/inbox"
 
@@ -14,7 +14,7 @@ for TARGET in "${TARGETS[@]}"; do
 
   docker buildx build \
     --target $TARGET \
-    --cache-to=type=local,dest=/tmp/.buildx-cache,mode=max \
+    --cache-to=type=local,dest=/tmp/.buildx-cache-new,mode=max \
     --cache-from=type=local,src=/tmp/.buildx-cache \
     -t $DOCKER_REGISTRY/$TARGET:latest \
     --push \
